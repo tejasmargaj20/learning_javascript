@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // Global Scope//
+
+        var fname = "Rohit ";
+        var fname = "Sancheet"; //redclare allowed
+        fname = "Tejas"; // reassign allowed
+
+        document.write(fname + "<br>");
+    </script>
+
+    <script>
+
+        //Block Scope
+
+        let lname = "Lokhande";
+        // var fname = "Sancheet";  //redclare not allowed
+        lname = "Margaj";   // reassign allowed
+
+        document.write(lname + "<br>");
+
+    </script>
+
+    <script>
+        //  //Block Scope
+
+        const cname = " Amazon";
+        // const cname = "Delloite"; // redclare allowed
+        // fname = "Rohit"; // reassign  not allowed
+
+        document.write(cname + "<br>");
+
+
+    </script>
+
+</body>
+
+</html>
