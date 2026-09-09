@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operators </title>
+</head>
+
+<body>
+    // Arithmatic Operators
+    <script>
+        var a = 57;
+        var b = 21;
+        var c = a + b;
+
+        c++;
+
+        c--;
+
+        c++;
+
+        c++;
+
+        c--;
+
+        c++;
+
+        c++;
+
+        c++;
+
+        c--;  //  + = 81 // - = 39     //  '/' = 5.714285714285714     //  "*" = 1200    //   "**" = 7.470883585889191e+36    // "%" = 18      // "++" =  invalid  //  
+
+        document.write(c + "<br><br>");
+    </script>
+
+
+    <!-- Assignment Operators-->
+
+
+    <script>
+        var x = 20;
+        var y = 15;
+        x = + y;
+
+        document.write(x + "<br><br>");
+        document.write(y + "<br><br>");
+
+    </script>
+
+
+
+    <!-- comparison Operators-->
+
+
+    <script>
+
+        var p = 15;
+        var q = "15";
+
+        document.write("<br><br>");
+
+        if (p == q) {
+            document.write(true + "<br><br>");     // "==" = true  // "===" = False // ">=" = false  // "<=" = false  // ">" = false  // "<" = false
+        }
+
+        else {
+            document.write(false + "<br><br>");
+        }
+
+
+    </script>
+
+
+    <script>
+        var age = 16;
+
+        if (age >= 18 && age <= 100) {
+
+            document.write("Eigible for Vote" + "<br><br>");
+
+        }
+
+        else {
+
+            document.write("Not Eligible" + "<br><br>");
+        }
+
+    </script>
+
+
+    <script>
+        var day = "Monday";
+
+        if (day === "Saturday" || day === "Sunday") {
+
+            document.write("Its WeekEnd" + "<br><br>");
+
+        }
+
+        else {
+
+            document.write("Its Weekday" + "<br><br>");
+        }
+
+    </script>
+
+
+    <script>
+
+        let our_age = 20;
+        let eligibility = (our_age <= 100) ? "Eligible for Retirement" : " Not Eligible for Retirement"
+        document.write(eligibility);
+
+    </script>
+
+</body>
+
+</html>
