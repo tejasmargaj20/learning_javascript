@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARRAY ELEMENTS</title>
+</head>
+
+<body>
+
+    <!-- Modify and Delete Array-->
+
+
+    <h2>Modify and Delete Array</h2>
+    <script>
+
+        var a = ["Tejas", 21, "Male", "Developer", "Pune"];
+        document.write(a, "<br>");
+
+        a[1] = "22";
+        document.write(a, "<br>");
+
+        delete a[2];
+        document.write(a, "<br>");
+
+        a[3] = "Software Developer";
+        document.write(a, "<br>");
+
+
+    </script>
+    <br>
+    <br>
+
+    <h2>Sorting and Reverse</h2>
+    <h3>
+        <script>
+
+
+            var b = ["shantanu", "Sumedh", "Mansoor", "Ashvini", "Pratiksha", "Swati"];
+
+
+            document.write(b, "<br>");
+
+            b.sort();
+            document.write(b, "<br>");
+
+            b.reverse();
+            document.write(b, "<br>");
+
+
+        </script>
+
+    </h3>
+
+
+    <h2>Pop And Push</h2>
+    <h3>
+        <script>
+
+
+            var c = ["Apple", "Mango", "Grapes", "Banana", "Watermellon", "Kiwi"];
+
+
+            document.write(c, "<br>");
+
+            c.pop();
+            document.write(c, "<br>");
+
+            c.pop();
+            document.write(c, "<br>");
+
+            c.pop();
+            document.write(c, "<br>");
+
+            c.push("Custerd-Apple");
+            document.write(c, "<br>");
+
+            c.push("Guava");
+            document.write(c, "<br>");
+
+
+        </script>
+
+    </h3>
+
+
+    <h2>Shift And Unshift</h2>
+    <h3>
+        <script>
+            <!-- Shift And Unshift -->
+
+            var d = ["BGMI", "Free Fire", "Drift Hohrizon", "Asphalt", "Dragon City", "Pokemon Go"];
+
+
+            document.write(d, "<br><br>");
+
+            d.shift();
+            document.write(d, "<br><br>");
+
+            d.shift();
+            document.write(d, "<br><br>");
+
+            d.shift();
+            document.write(d, "<br><br>");
+
+            d.unshift("Free Fire");
+            document.write(d, "<br><br>");
+
+            d.unshift();
+            document.write(d, "<br><br>");
+
+
+        </script>
+
+    </h3>
+
+    <h2> Concat & Join</h2>
+    <script>
+
+        var e = [true, false, true, false];
+
+        var f = [10, 20, 30, 40, 50];
+
+        var h = [42, "Hello", true, null];
+
+        var g = e.concat(f.concat(h));
+        document.write(g, "<br><br>")
+
+        var g = e.concat(f, h);
+        document.write(g, "<br><br>")
+
+
+        var i = g.join("---+---");
+        document.write(i, "<br><br>")
+    </script>
+</body>
+
+</html>
