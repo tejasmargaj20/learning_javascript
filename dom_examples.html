@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM(Document Object Model)</title>
+</head>
+
+<body>
+
+
+    <h2> Example -1 Change Text</h2>
+    <h3 id="title">Hello Bachoooo </h3>
+    <button onclick="changetext()">Change Text</button>
+
+    <script>
+        function changetext() {
+            document.getElementById('title').innerHTML = 'Kaise Hai Aap log ';
+        }
+
+    </script>
+    <br>
+    <hr>
+    <br>
+
+    <h3>Change Style Using DOM</h3>
+    <p id="msg">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid quis nulla debitis commodi suscipit
+        dignissimos deleniti, rem facere voluptatum veritatis alias soluta obcaecati in, asperiores dolorum minus
+        temporibus quo non. Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi dolorem repellat non labore,
+        inventore suscipit pariatur dolorum cupiditate, molestias natus praesentium vitae vel laboriosam autem, libero
+        sint fugiat voluptas ex. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem odit recusandae
+        nisi aspernatur incidunt excepturi eum dolor sequi officiis dolore, libero pariatur sapiente ipsa velit nemo
+        earum nihil rerum dolorem! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum nemo, aut natus
+        assumenda nisi ut! Sint iure omnis nihil quo ullam necessitatibus? Deleniti voluptatem sed optio ab dicta
+        eveniet omnis.
+
+    </p>
+    <button onclick="changecolor()">Chnage Color</button>
+    <script>
+        function changecolor() {
+            document.getElementById('msg').style.color = 'Red ';
+        }
+    </script>
+
+
+    <br>
+    <hr>
+    <br>
+
+    <h2>Change Image using DOM</h2>
+    <img id="chgImg" src="images/coffee_mug.jpeg" width="300" />
+    <button onclick="changeImage()">Change Image</button>
+
+    <script>
+        function changeImage() {
+            document.getElementById('chgImg').src = "images/1.jpeg"
+        }
+    </script>
+
+
+    <br>
+    <hr>
+    <br>
+
+    <h2>Get Input By User </h2>
+    <input type="text" id="nameInput" placeholder="Enter Name">
+
+    <button onclick="changeInput()">Change Input</button>
+    <h2 id="output"></h2>
+    <script>
+
+        function changeInput() {
+            let name = document.getElementById('nameInput').value;
+            document.getElementById('output').innerHTML = "Hello I'm  " + name;
+        }
+    </script>
+
+
+    <h2> Change Font Size Using "+" , "-"
+    </h2>
+
+    <p id="para">An array is a collection of multiple values stored in a single variable. For example, an array can be
+        used to store the names of fruits such as Apple, Banana, Mango, and Orange. Each value in an array has an index
+        number, starting from 0. This makes it easy to store, access, and manage multiple related values in a program.
+
+        An array is a collection of multiple values stored in a single variable. For example, an array can be used to
+        store the names of fruits such as Apple, Banana, Mango, and Orange. Each value in an array has an index number,
+        starting from 0. This makes it easy to store, access, and manage multiple related values in a program.
+
+        An array is a collection of multiple values stored in a single variable. For example, an array can be used to
+        store the names of fruits such as Apple, Banana, Mango, and Orange. Each value in an array has an index number,
+        starting from 0. This makes it easy to store, access, and manage multiple related values in a program.
+    </p>
+
+    <button onclick="increase()"> + </button>
+    <button onclick="decrease()"> - </button>
+
+
+    <script>
+        let size = 12;
+        function increase() {
+
+            size++;
+            document.getElementById('para').style.fontSize = size + 'px';
+        }
+        function decrease() {
+
+            size--;
+            document.getElementById('para').style.fontSize = size + 'px';
+
+        }
+    </script>
+
+    <br>
+    <hr>
+    <br>
+
+    <h2>Toggle Theme</h2>
+
+    <button onclick="toggleTheme()">Toggle Theme</button>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            transition: 10.5s;
+        }
+
+        .dark-mode {
+            background-color: black;
+            color: white;
+            transition: 12.3s;
+
+        }
+    </style>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+
+        }
+
+    </script>
+</body>
+
+</html>
