@@ -4,342 +4,232 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contact Us</title>
 
+    <title>Contact Us </title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        body {
-            background-color: #f5f5f5;
-        }
-
-        .b-form {
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            width: 100%;
-            max-width: 600px;
-            background-color: white;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .form-control:focus {
-            border-color: #0d6efd;
-            box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.15);
-        }
-
-        .error {
-            color: #dc3545;
-            font-size: 14px;
-            margin-top: 4px;
-            display: block;
-        }
-
-        .success-message {
-            color: #198754;
-            text-align: center;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-
-        .password-strength {
-            font-size: 13px;
-            margin-top: 5px;
-        }
-    </style>
 </head>
 
 <body>
+    <style>
+        .b-form {
+            border: 1px solid black;
+            border-radius: 10px;
+            width: 600px
+        }
+    </style>
 
-    <div class="container d-flex justify-content-center align-items-center min-vh-100">
-        <div class="b-form p-4">
-            <h2 class="text-center mb-4">Contact Us</h2>
+    <div class="container d-flex justify-content-center align-items-center  ">
 
-            <div id="successMessage" class="success-message"></div>
+        <div class=" container w-100 mt-4  b-form " style="max-width: 500px;">
 
-            <form id="contactForm" novalidate>
+            <h2 class="text-center mt-4 mb-4">Contact Us</h2>
 
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name:</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Your name"
-                        autocomplete="name" minlength="3" maxlength="50" required>
-                    <span class="error" id="nameError"></span>
+            <form onsubmit="return validate()">
+
+                <div class=" mb-3">
+                    <label class="form-label">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Your name">
+                    <span class="text-danger" id="nameError"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email:</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Your email"
-                        autocomplete="email" maxlength="100" required>
-                    <span class="error" id="emailError"></span>
+                    <label class="form-label">Email:</label>
+                    <input type="text" id="email" name="email" class="form-control" placeholder="Your email">
+                    <span class="text-danger" id="emailError"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label for="mobile" class="form-label">Mobile Number:</label>
-                    <input type="tel" id="mobile" name="mobile" class="form-control"
-                        placeholder="Your 10-digit mobile number" autocomplete="tel" maxlength="10" required>
-                    <span class="error" id="mobileError"></span>
+                    <label class="form-label">Mobile Number:</label>
+                    <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="Your mobile number">
+                    <span class="text-danger" id="mobileError"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password:</label>
+                    <label class="form-label">Password:</label>
                     <input type="password" id="password" name="password" class="form-control"
-                        placeholder="Enter password" autocomplete="new-password" minlength="8" maxlength="50" required>
+                        placeholder="Enter password">
+                    <span class="text-danger" id="passwordError"></span>
 
-                    <div id="passwordStrength" class="password-strength"></div>
-                    <span class="error" id="passwordError"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label for="confirmPassword" class="form-label">Confirm Password:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control"
-                        placeholder="Confirm password" autocomplete="new-password" required>
-                    <span class="error" id="confirmPasswordError"></span>
+                    <label class="form-label">Confirm Password:</label>
+                    <input type="password" id="confirmpassword" name="confirmPassword" class="form-control"
+                        placeholder="Confirm password">
+                    <span class="text-danger" id="confirmpasswordError"></span>
+
                 </div>
 
                 <div class="mb-3">
-                    <label for="message" class="form-label">Message:</label>
-                    <textarea id="message" name="message" class="form-control" rows="4" placeholder="Your message"
-                        minlength="10" maxlength="500" required></textarea>
-
-                    <small class="text-muted">Maximum 500 characters</small>
-                    <span class="error" id="messageError"></span>
+                    <label class="form-label">Message:</label>
+                    <textarea class="form-control" id="message" name="message" placeholder="Your message"></textarea>
+                    <span class="text-danger" id="messageError"></span>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Gender:</label>
 
                     <div>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" id="male" name="gender" value="Male" class="form-check-input">
-                            <label for="male" class="form-check-label">Male</label>
-                        </div>
-
-                        <div class="form-check form-check-inline">
-                            <input type="radio" id="female" name="gender" value="Female" class="form-check-input">
-                            <label for="female" class="form-check-label">Female</label>
-                        </div>
-
-                        <div class="form-check form-check-inline">
-                            <input type="radio" id="other" name="gender" value="Other" class="form-check-input">
-                            <label for="other" class="form-check-label">Other</label>
-                        </div>
+                        <input type="radio" id="male" name="gender"> Male
+                        <input type="radio" id="female" name="gender" class="ms-3"> Female
+                        <input type="radio" id="other" name="gender" class="ms-3"> Other
+                        <span class="text-danger" id="genderError"></span>
                     </div>
-
-                    <span class="error" id="genderError"></span>
                 </div>
 
                 <div class="mb-3">
-                    <div class="form-check">
-                        <input type="checkbox" id="agree" name="agree" class="form-check-input" required>
-                        <label for="agree" class="form-check-label">
-                            I agree to the terms & conditions
-                        </label>
-                    </div>
-
-                    <span class="error" id="agreeError"></span>
+                    <input type="checkbox" id="agree" name="agree">
+                    I agree to the terms & conditions
+                    <span class="text-danger" id="agreeError"></span>
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100" id="submitButton">
+                <button type="submit" class="btn btn-primary  mb-4 w-100">
                     Submit
                 </button>
 
             </form>
+
         </div>
+
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
 
     <script>
-        const form = document.getElementById("contactForm");
+        function validate() {
 
-        const nameInput = document.getElementById("name");
-        const emailInput = document.getElementById("email");
-        const mobileInput = document.getElementById("mobile");
-        const passwordInput = document.getElementById("password");
-        const confirmPasswordInput = document.getElementById("confirmPassword");
-        const messageInput = document.getElementById("message");
-        const agreeInput = document.getElementById("agree");
+            const name = document.getElementById("name").value.trim();
 
-        const passwordStrength = document.getElementById("passwordStrength");
-        const successMessage = document.getElementById("successMessage");
-        const submitButton = document.getElementById("submitButton");
+            const email = document.getElementById("email").value.trim();
 
-        const nameError = document.getElementById("nameError");
-        const emailError = document.getElementById("emailError");
-        const mobileError = document.getElementById("mobileError");
-        const passwordError = document.getElementById("passwordError");
-        const confirmPasswordError = document.getElementById("confirmPasswordError");
-        const messageError = document.getElementById("messageError");
-        const genderError = document.getElementById("genderError");
-        const agreeError = document.getElementById("agreeError");
+            const mobile = document.getElementById("mobile").value.trim();
 
-        function clearErrors() {
+            const password = document.getElementById("password").value.trim();
+
+            const confirmpassword = document.getElementById("confirmpassword").value.trim();
+
+            const message = document.getElementById("message").value.trim();
+
+            const gender = document.querySelector('input[name="gender"]:checked')
+
+            const agree = document.getElementById("agree").checked;
+
+            const nameError = document.getElementById("nameError");
+            const emailError = document.getElementById("emailError");
+            const mobileError = document.getElementById("mobileError");
+            const passwordError = document.getElementById("passwordError");
+            const confirmPasswordError = document.getElementById("confirmpasswordError");
+            const messageError = document.getElementById("messageError");
+            const genderError = document.getElementById("genderError");
+            const agreeError = document.getElementById("agreeError");
+
+
+
+
             nameError.textContent = "";
             emailError.textContent = "";
-            mobileError.textContent = "";
             passwordError.textContent = "";
+            mobileError.textContent = "";
             confirmPasswordError.textContent = "";
             messageError.textContent = "";
             genderError.textContent = "";
             agreeError.textContent = "";
-            successMessage.textContent = "";
-
-            document.querySelectorAll(".form-control").forEach(function (input) {
-                input.classList.remove("is-invalid");
-            });
         }
 
-        function showError(input, errorElement, message) {
-            input.classList.add("is-invalid");
-            errorElement.textContent = message;
+        // Clear previous error message
+
+
+
+        //validate field
+
+        let isvalid = true;
+
+
+        if (name === "") {
+            nameError.textContent = "Please enter your name.";
+            isvalid = false;
+        }
+        else if (name.length < 3) {
+            nameError.textContent = "Please enter at least 3 characters.";
+            isvalid = false;
         }
 
-        passwordInput.addEventListener("input", function () {
-            const password = passwordInput.value;
 
-            if (password.length === 0) {
-                passwordStrength.textContent = "";
-                return;
-            }
+        if (email === "") {
+            emailError.textContent = "Please enter your email.";
+            isvalid = false;
+        }
+        else if (!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email)) {
+            emailError.textContent = "Please enter a valid email address.";
+            isvalid = false;
+        }
 
-            let score = 0;
 
-            if (password.length >= 8) score++;
-            if (/[a-z]/.test(password)) score++;
-            if (/[A-Z]/.test(password)) score++;
-            if (/[0-9]/.test(password)) score++;
-            if (/[@#$%^&+=!]/.test(password)) score++;
+        if (mobile === "") {
+            mobileError.textContent = "Please enter your mobile number.";
+            isvalid = false;
+        }
+        else if (!/^[6-9][0-9]{9}$/.test(mobile)) {
+            mobileError.textContent = "Please enter a valid 10-digit mobile number.";
+            isvalid = false;
+        }
 
-            if (score <= 2) {
-                passwordStrength.textContent = "Password strength: Weak";
-            } else if (score <= 4) {
-                passwordStrength.textContent = "Password strength: Medium";
-            } else {
-                passwordStrength.textContent = "Password strength: Strong";
-            }
-        });
+        if (password === "") {
+            passwordError.textContent = "Please enter your password.";
+            isvalid = false;
+        }
+        else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=!]).{8,}$/.test(password)) {
+            passwordError.textContent = "Password must contain 8 characters, uppercase, lowercase, number and special character.";
+            isvalid = false;
+        }
 
-        mobileInput.addEventListener("input", function () {
-            mobileInput.value = mobileInput.value.replace(/[^0-9]/g, "");
-        });
+        if (confirmPassword === "") {
+            confirmPasswordError.textContent = "Please confirm your password.";
+            isvalid = false;
+        }
+        else if (confirmpassword !== password) {
+            confirmPasswordError.textContent = "Passwords do not match.";
+            isvalid = false;
+        }
 
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
-            clearErrors();
+        if (message === "") {
+            messageError.textContent = "Please enter your Message.";
+            isvalid = false;
+        }
 
-            let isValid = true;
+        if (!gender) {
+            genderError.textContent = "Please select you gender.";
+            isvalid = false;
 
-            const name = nameInput.value.trim();
-            const email = emailInput.value.trim();
-            const mobile = mobileInput.value.trim();
-            const password = passwordInput.value;
-            const confirmPassword = confirmPasswordInput.value;
-            const message = messageInput.value.trim();
 
-            const gender = document.querySelector('input[name="gender"]:checked');
+        }
 
-            if (name === "") {
-                showError(nameInput, nameError, "Please enter your name.");
-                isValid = false;
-            } else if (name.length < 3) {
-                showError(nameInput, nameError, "Name must contain at least 3 characters.");
-                isValid = false;
-            } else if (!/^[A-Za-z ]+$/.test(name)) {
-                showError(nameInput, nameError, "Name should contain only letters and spaces.");
-                isValid = false;
-            }
 
-            const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+        if (!agree) {
+            agreeError.textContent = "You miust agree the terms and conditions ";
+            isvalid = false;
 
-            if (email === "") {
-                showError(emailInput, emailError, "Please enter your email.");
-                isValid = false;
-            } else if (!emailPattern.test(email)) {
-                showError(emailInput, emailError, "Please enter a valid email address.");
-                isValid = false;
-            }
+        }
 
-            const mobilePattern = /^[6-9][0-9]{9}$/;
+        if (isvalid) {
+            alert("Form Is Submitted Successfully")
+        }
 
-            if (mobile === "") {
-                showError(mobileInput, mobileError, "Please enter your mobile number.");
-                isValid = false;
-            } else if (!mobilePattern.test(mobile)) {
-                showError(mobileInput, mobileError, "Enter a valid 10-digit Indian mobile number.");
-                isValid = false;
-            }
+        return isvalid();
 
-            const passwordPattern =
-                /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=!]).{8,}$/;
-
-            if (password === "") {
-                showError(passwordInput, passwordError, "Please enter your password.");
-                isValid = false;
-            } else if (!passwordPattern.test(password)) {
-                showError(
-                    passwordInput,
-                    passwordError,
-                    "Password must contain 8+ characters, uppercase, lowercase, number and special character."
-                );
-                isValid = false;
-            }
-
-            if (confirmPassword === "") {
-                showError(
-                    confirmPasswordInput,
-                    confirmPasswordError,
-                    "Please confirm your password."
-                );
-                isValid = false;
-            } else if (confirmPassword !== password) {
-                showError(
-                    confirmPasswordInput,
-                    confirmPasswordError,
-                    "Passwords do not match."
-                );
-                isValid = false;
-            }
-
-            if (message === "") {
-                showError(messageInput, messageError, "Please enter your message.");
-                isValid = false;
-            } else if (message.length < 10) {
-                showError(
-                    messageInput,
-                    messageError,
-                    "Message must contain at least 10 characters."
-                );
-                isValid = false;
-            }
-
-            if (!gender) {
-                genderError.textContent = "Please select your gender.";
-                isValid = false;
-            }
-
-            if (!agreeInput.checked) {
-                agreeError.textContent = "Please agree to the terms and conditions.";
-                isValid = false;
-            }
-
-            if (isValid) {
-                successMessage.textContent = "Form submitted successfully!";
-
-                submitButton.disabled = true;
-                submitButton.textContent = "Submitted";
-
-                alert("Form Is Submitted Successfully");
-
-                form.reset();
-                passwordStrength.textContent = "";
-
-                setTimeout(function () {
-                    submitButton.disabled = false;
-                    submitButton.textContent = "Submit";
-                    successMessage.textContent = "";
-                }, 3000);
-            }
-        });
     </script>
+
+
 
 </body>
 
